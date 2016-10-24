@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'diegor.wsgi.application'
 
 
 DATABASES = {
-    'default': config('DATABASE_URL', default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'), cast=db_url)
+    'default': config('DB_URL', default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'), cast=db_url)
 }
 
 AUTH_PASSWORD_VALIDATORS = [
