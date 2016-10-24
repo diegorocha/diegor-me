@@ -104,3 +104,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser',
     )
 }
+
+ADMINS = (('Diego Rocha', 'diego@diegorocha.com.br'),)
