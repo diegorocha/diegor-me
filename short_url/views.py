@@ -14,10 +14,11 @@ class ShortUrlView(generic.RedirectView):
         short_url = models.ShortUrl.objects.filter(alias=alias).first()
         if short_url:
             return short_url.url
-        # Procura pela chave (base 62)
-        short_url = models.ShortUrl.objects.filter(pk=utils.base62_to_int(alias)).first()
-        if short_url:
-            return short_url.url
+        if utils.is_base62(alias):
+            # Procura pela chave (base 62)
+            short_url = models.ShortUrl.objects.filter(pk=utils.base62_to_int(alias)).first()
+            if short_url:
+                return short_url.url
         if alias.isdigit():
             # Procura pela chave (base 10)
             try:
