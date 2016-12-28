@@ -26,10 +26,14 @@ class ShortUrlView(generic.RedirectView):
                 short_url = models.ShortUrl.objects.filter(pk=value).first()
                 if short_url:
                     return short_url.url
-            except:
+            except:  # pragma: no cover
                 pass
         raise Http404("%s não encontrado" % alias)
 
 
 class NotFoundView(generic.TemplateView):
     template_name = 'not-found.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context, status=404)
