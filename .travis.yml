@@ -1,6 +1,6 @@
 language: python
 env:
-  - SECRET=)vjn2yf9+7l&llpv3_ieqyoz^w)f02$h%$hja%em7^1+yhbl&z
+  - SECRET=")vjn2yf9+7l&llpv3_ieqyoz^w)f02$h%$hja%em7^1+yhbl&z"
 python:
   - "2.7"
 install:
