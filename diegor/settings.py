@@ -1,4 +1,5 @@
 import os
+import sys
 from decouple import config
 from dj_database_url import parse as db_url
 
@@ -18,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_nose',
     'short_url',
 ]
 
@@ -55,10 +57,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'diegor.wsgi.application'
 
 
-
 DATABASES = {
     'default': config('DB_URL', default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'), cast=db_url)
 }
+
+
+if 'test' in sys.argv or 'test_coverage' in sys.argv:  # Covers regular testing and django-coverage
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -102,8 +107,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAdminUser',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
 }
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 ADMINS = (('Diego Rocha', 'diego@diegorocha.com.br'),)
 
