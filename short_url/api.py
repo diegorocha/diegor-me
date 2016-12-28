@@ -16,6 +16,5 @@ class ShortUrlViewSet(viewsets.ModelViewSet):
     serializer_class = ShortUrlSerializer
     permission_classes = [permissions.IsAdminUser]
 
-
 api_router = routers.DefaultRouter()
 api_router.register(r'short_url', ShortUrlViewSet)

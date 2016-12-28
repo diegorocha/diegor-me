@@ -4,7 +4,7 @@ _alphabet_base_62 = string.digits + string.letters
 
 
 def is_base62(value):
-    return len(set(value) - set(_alphabet_base_62)) == 0
+    return len(set(value) - set(_alphabet_base_62)) == 0 and len(value) > 0
 
 
 def base62_to_int(value):
