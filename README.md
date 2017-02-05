@@ -4,4 +4,4 @@
 
 Short url system running using Django. With api and admin.
 
-URL: [diegor.me](htts://diegor.me)
+URL: [diegor.me](https://diegor.me/)

@@ -1,4 +1,4 @@
-import models
+from short_url import models
 from rest_framework import routers
 from rest_framework import viewsets
 from rest_framework import serializers

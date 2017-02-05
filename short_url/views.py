@@ -1,7 +1,7 @@
 # coding: utf-8
 from __future__ import unicode_literals
-import utils
-import models
+from short_url import utils
+from short_url import models
 from django.views import generic
 from django.http import Http404
 

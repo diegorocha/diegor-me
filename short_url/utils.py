@@ -1,6 +1,6 @@
 import string
 
-_alphabet_base_62 = string.digits + string.letters
+_alphabet_base_62 = string.digits + string.ascii_letters
 
 
 def is_base62(value):

@@ -4,7 +4,7 @@ from django.conf import settings
 from short_url import utils
 from model_mommy import mommy
 from django.urls import reverse
-from string import digits, letters
+from string import digits, ascii_letters
 from short_url.models import ShortUrl
 from django.contrib.auth.models import User
 
@@ -17,7 +17,7 @@ class UtilTest(TestCase):
         self.assertFalse(utils.is_base62('abcd@'))
 
     def test_is_base62_valid(self):
-        self.assertTrue(utils.is_base62(digits + letters))
+        self.assertTrue(utils.is_base62(digits + ascii_letters))
 
     def test_base62_to_int_invalid(self):
         with self.assertRaises(Exception):

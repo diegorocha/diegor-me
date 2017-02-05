@@ -1,7 +1,6 @@
-import views
-from api import api_router
+from short_url import views
+from short_url.api import api_router
 from django.conf.urls import url, include
-from django.contrib import admin
 
 
 urlpatterns = [

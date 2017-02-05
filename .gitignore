@@ -5,3 +5,4 @@ staticfiles
 .vscode
 .coverage
 coverage/
+.idea

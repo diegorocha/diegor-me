@@ -1,4 +1,4 @@
-import models
+from short_url import models
 from django.contrib import admin
 
 
