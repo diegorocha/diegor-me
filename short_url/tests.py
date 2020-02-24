@@ -67,8 +67,8 @@ class ShortUrlViewSetTest(APITestCase):
     def setUp(self):
         username = 'admin'
         password = '4dm1n'
-        User.objects.create_user(username=username, password=password, is_staff=True)
-        self.client.login(username=username, password=password)
+        user = User.objects.create_user(username=username, password=password, is_staff=True)
+        self.client.force_authenticate(user=user)
 
     def test_get(self):
         page_size = settings.REST_FRAMEWORK.get('PAGE_SIZE')
