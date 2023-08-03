@@ -6,3 +6,5 @@ staticfiles
 .coverage
 coverage/
 .idea
+.terraform
+lambda/
