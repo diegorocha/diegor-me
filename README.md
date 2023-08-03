@@ -1,7 +1,12 @@
 # diegor.me
 
-[![Coverage Status](https://coveralls.io/repos/github/diegorocha/diegor-me/badge.svg?branch=master)](https://coveralls.io/github/diegorocha/diegor-me?branch=master) [![Build Status](https://travis-ci.org/diegorocha/diegor-me.svg?branch=master)](https://travis-ci.org/diegorocha/diegor-me)
+A simple Short url system
 
-Short url system running using Django. With api and admin.
+* Terraform IaC
+* Cloudfront (with HTTP redirect to HTTPS)
+* API Gateway (Invoking Lambda)
+* AWS Lambda (executing python scripts)
+* DynamoDB (Key-Value database)
+* DNS hosted on Google Cloud
 
 URL: [diegor.me](https://diegor.me/)
