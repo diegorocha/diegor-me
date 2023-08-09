@@ -30,6 +30,7 @@ resource "aws_iam_policy" "dynamo_policy" {
           "dynamodb:BatchGet*",
           "dynamodb:DescribeStream",
           "dynamodb:DescribeTable",
+          "dynamodb:DeleteItem",
           "dynamodb:Get*",
           "dynamodb:Query",
           "dynamodb:Scan",
