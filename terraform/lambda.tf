@@ -2,7 +2,7 @@ locals {
   lambda_name                 = replace(local.app_name, ".", "-")
   lambda_artifact_dir         = "${path.module}/lambda"
   lambda_layer_zipfile_name   = "layer"
-  python_version              = "python3.8"
+  python_version              = "python3.12"
   lambda_basic_execution_role = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
@@ -85,7 +85,7 @@ resource "aws_lambda_function" "lambda" {
   runtime          = local.python_version
   layers           = [aws_lambda_layer_version.lambda_layer.arn]
   memory_size      = 128
-  timeout          = 15
+  timeout          = 3
 
   environment {
     variables = {

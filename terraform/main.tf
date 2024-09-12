@@ -2,7 +2,7 @@ terraform {
   required_version = "1.4.5"
   required_providers {
     aws = {
-      version = "5.1.0"
+      version = "5.65.0"
     }
     google = {
       version = "4.76.0"
