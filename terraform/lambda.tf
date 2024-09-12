@@ -38,7 +38,7 @@ resource "aws_lambda_layer_version" "lambda_layer" {
 data "archive_file" "lambda_zip_file" {
   output_path = "${local.lambda_artifact_dir}/lambda.zip"
   source_dir  = "${path.module}/../src"
-  excludes    = ["__pycache__", "*.pyc", "terraform", ".env", ".serverless"]
+  excludes    = ["__pycache__", "*.pyc", "terraform", ".env", ".serverless", "requirements.txt"]
   type        = "zip"
 }
 
