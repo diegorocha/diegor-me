@@ -186,11 +186,3 @@ resource "aws_cloudfront_distribution" "api" {
     minimum_protocol_version = "TLSv1.2_2019"
   }
 }
-
-resource "google_dns_record_set" "api" {
-  name         = google_dns_managed_zone.zone.dns_name
-  type         = "ALIAS"
-  ttl          = 600
-  managed_zone = google_dns_managed_zone.zone.name
-  rrdatas      = ["${aws_cloudfront_distribution.api.domain_name}."]
-}

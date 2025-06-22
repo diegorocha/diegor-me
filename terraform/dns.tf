@@ -9,21 +9,31 @@ locals {
   ]
 }
 
-resource "google_dns_managed_zone" "zone" {
-  name     = replace(local.domain_name, ".", "-")
-  dns_name = "${local.domain_name}."
+resource "aws_route53_zone" "zone" {
+  name = local.domain_name
 }
 
-resource "google_dns_record_set" "mx" {
-  name         = google_dns_managed_zone.zone.dns_name
-  type         = "MX"
-  ttl          = local.default_ttl
-  managed_zone = google_dns_managed_zone.zone.name
-  rrdatas      = local.mx_value
+resource "aws_route53_record" "mx" {
+  zone_id = aws_route53_zone.zone.zone_id
+  name    = local.domain_name
+  type    = "MX"
+  records = local.mx_value
+  ttl     = local.default_ttl
+}
+
+resource "aws_route53_record" "api" {
+  zone_id = aws_route53_zone.zone.zone_id
+  name    = local.domain_name
+  type    = "A"
+  alias {
+    evaluate_target_health = false
+    name                   = aws_cloudfront_distribution.api.domain_name
+    zone_id                = aws_cloudfront_distribution.api.hosted_zone_id
+  }
 }
 
 output "dns_zone" {
   value = {
-    tostring(local.domain_name) = google_dns_managed_zone.zone.name_servers
+    tostring(local.domain_name) = aws_route53_zone.zone.name_servers
   }
 }
