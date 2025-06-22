@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.4.5"
+  required_version = "1.10.5"
   required_providers {
     aws = {
       version = "5.65.0"
@@ -16,7 +16,6 @@ terraform {
     workspace_key_prefix = ""
     key                  = "diegor.me/terraform.tfstate"
     region               = "us-east-1"
-    profile              = "diego"
   }
 }
 
