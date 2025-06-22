@@ -4,12 +4,6 @@ terraform {
     aws = {
       version = "5.65.0"
     }
-    google = {
-      version = "4.76.0"
-    }
-    google-beta = {
-      version = "4.76.0"
-    }
   }
   backend "s3" {
     bucket               = "diegor-terraform"
@@ -26,16 +20,6 @@ provider "aws" {
       service = local.app_name
     }
   }
-}
-
-provider "google" {
-  project = "diegor-infra"
-  region  = "us-central1"
-}
-
-provider "google-beta" {
-  project = "diegor-infra"
-  region  = "us-central1"
 }
 
 locals {
