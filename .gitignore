@@ -8,3 +8,4 @@ coverage/
 .idea
 .terraform
 lambda/
+.venv
