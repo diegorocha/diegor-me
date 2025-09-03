@@ -22,9 +22,11 @@ resource "aws_route53_record" "mx" {
 }
 
 resource "aws_route53_record" "api" {
+  for_each = toset(["A", "AAAA"])
+
   zone_id = aws_route53_zone.zone.zone_id
   name    = local.domain_name
-  type    = "A"
+  type    = each.key
   alias {
     evaluate_target_health = false
     name                   = aws_cloudfront_distribution.api.domain_name
